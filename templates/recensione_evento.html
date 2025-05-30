@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Recensione - {{ evento.titolo }}{% endblock %}
+
+{% block content %}
+<h2>Scrivi una recensione per "{{ evento.titolo }}"</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Invia Recensione</button>
+</form>
+{% endblock %}

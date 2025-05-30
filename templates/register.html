@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Registrati - Agora Cultura{% endblock %}
+
+{% block content %}
+<h2>Registrazione</h2>
+<p>DEBUG: Siamo in register.html ✅</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {{ form.errors }}
+    {{ form.as_p }}
+    <button type="submit">Registrati</button>
+</form>
+
+<button onclick="alert('Test')">Test bottone</button>
+{% endblock %}

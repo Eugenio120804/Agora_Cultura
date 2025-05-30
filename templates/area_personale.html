@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Area Personale - Agora Cultura{% endblock %}
+
+{% block content %}
+<h2>Area Personale</h2>
+<p>Benvenuto, {{ user.username }}!</p>
+
+<h3>Eventi a cui hai partecipato:</h3>
+<ul>
+    {% for evento in eventi_partecipati %}
+        <li>{{ evento.titolo }} - {{ evento.data }}</li>
+    {% empty %}
+        <li>Non hai partecipato a nessun evento.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

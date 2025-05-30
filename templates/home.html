@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Agora Cultura{% endblock %}
+
+{% block content %}
+<h1>Benvenuto su Agora Cultura</h1>
+<p>Scopri gli eventi culturali nella tua zona.</p>
+<a href="{% url 'calendario_eventi' %}">Vai al calendario eventi</a>
+{% endblock %}
