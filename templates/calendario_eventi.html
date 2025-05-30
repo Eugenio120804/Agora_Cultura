@@ -3,15 +3,31 @@
 {% block title %}Calendario Eventi - Agora Cultura{% endblock %}
 
 {% block content %}
-<h2>Calendario Eventi</h2>
-<ul>
-    {% for evento in eventi %}
-        <li>
-            <a href="{% url 'dettaglio_evento' evento.id %}">{{ evento.titolo }}</a> - {{ evento.data }}
-        </li>
-    {% empty %}
-        <li>Nessun evento disponibile.</li>
-    {% endfor %}
-</ul>
-{% endblock %}
+<h2 class="mb-4">Calendario Eventi</h2>
 
+<div class="row">
+    {% for svolgimento in svolgimenti %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">{{ svolgimento.evento.titolo }}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Data:</strong> {{ svolgimento.data|date:"d/m/Y" }}<br>
+                        <strong>Ora:</strong> {{ svolgimento.orario|time:"H:i" }}<br>
+                        <strong>Luogo:</strong> {{ svolgimento.luogo.nome }}
+                    </p>
+                    <a href="{% url 'dettaglio_evento' svolgimento.evento.id %}" class="btn btn-primary">Dettagli</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                Nessun evento disponibile.
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

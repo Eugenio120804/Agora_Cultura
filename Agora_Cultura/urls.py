@@ -25,7 +25,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('register/', views.registrazione, name='register'),
-    path('calendario/', views.home, name='calendario_eventi'),  # se usi `home` come calendario
+    path('calendario/', views.calendario_eventi, name='calendario_eventi'),
     path('evento/<int:evento_id>/', views.dettaglio_evento, name='dettaglio_evento'),
     path('recensione/<int:evento_id>/', views.lascia_recensione, name='recensione_evento'),
     path('area_personale/', views.area_personale, name='area_personale'),

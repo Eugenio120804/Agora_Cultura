@@ -3,22 +3,86 @@
 {% block title %}{{ evento.titolo }} - Agora Cultura{% endblock %}
 
 {% block content %}
-<h2>{{ evento.titolo }}</h2>
-<p><strong>Data:</strong> {{ evento.data }}</p>
-<p><strong>Descrizione:</strong> {{ evento.descrizione }}</p>
+<div class="row">
+    <div class="col-md-8">
+        <h2 class="mb-4">{{ evento.titolo }}</h2>
 
-<h3>Recensioni</h3>
-<ul>
-    {% for recensione in recensioni %}
-        <li><strong>{{ recensione.utente.username }}</strong>: {{ recensione.testo }}</li>
-    {% empty %}
-        <li>Nessuna recensione disponibile.</li>
-    {% endfor %}
-</ul>
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Dettagli Evento</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Tipologia:</strong> {{ evento.tipologia }}</p>
+                <p><strong>Prezzo:</strong> € {{ evento.prezzo }}</p>
+                <p><strong>Descrizione:</strong> {{ evento.descrizione }}</p>
+            </div>
+        </div>
 
-{% if user.is_authenticated %}
-    <a href="{% url 'recensione_evento' evento.id %}">Scrivi una recensione</a>
-{% else %}
-    <p><a href="{% url 'login' %}">Accedi</a> per scrivere una recensione.</p>
-{% endif %}
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Date e Orari</h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group">
+                    {% for svolgimento in svolgimenti %}
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ svolgimento.data|date:"l d F Y" }}</h5>
+                                <small>{{ svolgimento.orario|time:"H:i" }}</small>
+                            </div>
+                            <p class="mb-1">Luogo: {{ svolgimento.luogo.nome }}</p>
+                            <small>Indirizzo: {{ svolgimento.luogo.indirizzo }}, {{ svolgimento.luogo.citta }}</small>
+                        </div>
+                    {% empty %}
+                        <div class="list-group-item">Nessuna data disponibile.</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Recensioni</h5>
+            </div>
+            <div class="card-body">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'recensione_evento' evento.id %}" class="btn btn-primary mb-3">Scrivi una recensione</a>
+                {% else %}
+                    <div class="alert alert-info mb-3">
+                        <a href="{% url 'login' %}">Accedi</a> per scrivere una recensione.
+                    </div>
+                {% endif %}
+
+                {% if recensioni %}
+                    <div class="list-group">
+                        {% for recensione in recensioni %}
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">{{ recensione.utente.username }}</h6>
+                                    <small>{{ recensione.data|date:"d/m/Y" }}</small>
+                                </div>
+                                <p class="mb-1">{{ recensione.testo }}</p>
+                                <small>Valutazione: 
+                                    {% for i in "12345" %}
+                                        {% if forloop.counter <= recensione.valutazione %}
+                                            <i class="text-warning">★</i>
+                                        {% else %}
+                                            <i class="text-secondary">☆</i>
+                                        {% endif %}
+                                    {% endfor %}
+                                </small>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="alert alert-light">
+                        Nessuna recensione disponibile.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

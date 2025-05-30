@@ -3,10 +3,44 @@
 {% block title %}Recensione - {{ evento.titolo }}{% endblock %}
 
 {% block content %}
-<h2>Scrivi una recensione per "{{ evento.titolo }}"</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Invia Recensione</button>
-</form>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Scrivi una recensione</h2>
+            </div>
+            <div class="card-body">
+                <h4 class="mb-4">Evento: "{{ evento.titolo }}"</h4>
+
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        Si sono verificati degli errori. Controlla i campi sottostanti.
+                    </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="id_testo" class="form-label">{{ form.testo.label }}</label>
+                        {{ form.testo.errors }}
+                        <textarea name="testo" id="id_testo" rows="4" class="form-control" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_valutazione" class="form-label">{{ form.valutazione.label }}</label>
+                        {{ form.valutazione.errors }}
+                        <input type="number" name="valutazione" id="id_valutazione" min="1" max="5" class="form-control" required>
+                        <div class="form-text">Valuta da 1 (pessimo) a 5 (eccellente)</div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'dettaglio_evento' evento.id %}" class="btn btn-secondary">Annulla</a>
+                        <button type="submit" class="btn btn-primary">Invia Recensione</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

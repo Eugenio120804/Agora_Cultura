@@ -3,16 +3,65 @@
 {% block title %}Registrati - Agora Cultura{% endblock %}
 
 {% block content %}
-<h2>Registrazione</h2>
-<p>DEBUG: Siamo in register.html ✅</p>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Registrazione</h2>
+            </div>
+            <div class="card-body">
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        Si sono verificati degli errori. Controlla i campi sottostanti.
+                    </div>
+                {% endif %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.non_field_errors }}
-    {{ form.errors }}
-    {{ form.as_p }}
-    <button type="submit">Registrati</button>
-</form>
+                <form method="post">
+                    {% csrf_token %}
 
-<button onclick="alert('Test')">Test bottone</button>
+                    <div class="mb-3">
+                        <label for="id_username" class="form-label">Nome utente</label>
+                        {{ form.username.errors }}
+                        <input type="text" name="username" class="form-control" id="id_username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_email" class="form-label">Email</label>
+                        {{ form.email.errors }}
+                        <input type="email" name="email" class="form-control" id="id_email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_password1" class="form-label">Password</label>
+                        {{ form.password1.errors }}
+                        <input type="password" name="password1" class="form-control" id="id_password1" required>
+                        <div class="form-text">La password deve contenere almeno 8 caratteri.</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_password2" class="form-label">Conferma Password</label>
+                        {{ form.password2.errors }}
+                        <input type="password" name="password2" class="form-control" id="id_password2" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_ruolo" class="form-label">Ruolo</label>
+                        {{ form.ruolo.errors }}
+                        <select name="ruolo" class="form-control" id="id_ruolo" required>
+                            <option value="Cittadino">Cittadino</option>
+                            <option value="Organizzatore">Organizzatore</option>
+                            <option value="Amministratore">Amministratore</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Registrati</button>
+                </form>
+
+                <div class="mt-3">
+                    <p>Hai già un account? <a href="{% url 'login' %}">Accedi</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

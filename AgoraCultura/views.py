@@ -9,9 +9,11 @@ def home(request):
 
 def dettaglio_evento(request, evento_id):
     evento = get_object_or_404(Evento, pk=evento_id)
+    svolgimenti = Svolgimento.objects.filter(evento=evento).order_by('data', 'orario')
     recensioni = Recensione.objects.filter(evento=evento)
     return render(request, 'dettaglio_evento.html', {
         'evento': evento,
+        'svolgimenti': svolgimenti,
         'recensioni': recensioni
     })
 
@@ -43,28 +45,29 @@ def lascia_recensione(request, evento_id):
 
 @login_required
 def area_personale(request):
-    prenotazioni = Prenotazione.objects.filter(utente=request.user)
-    eventi_partecipati = [p.evento for p in prenotazioni]
+    prenotazioni = Prenotazione.objects.filter(utente=request.user).select_related('evento')
+    recensioni = Recensione.objects.filter(utente=request.user).select_related('evento')
+
+    # Get the first upcoming svolgimento for each event
+    eventi_info = []
+    for prenotazione in prenotazioni:
+        evento = prenotazione.evento
+        svolgimento = Svolgimento.objects.filter(evento=evento, data__gte=prenotazione.data_prenotazione).order_by('data', 'orario').first()
+        if svolgimento:
+            eventi_info.append({
+                'evento': evento,
+                'prenotazione': prenotazione,
+                'svolgimento': svolgimento
+            })
+
     return render(request, 'area_personale.html', {
-        'eventi_partecipati': eventi_partecipati
+        'eventi_info': eventi_info,
+        'recensioni': recensioni,
+        'user': request.user
     })
 
-@login_required
 def calendario_eventi(request):
-    eventi = Evento.objects.all().order_by('data')
-    return render(request, 'calendario_eventi.html', {'eventi': eventi})
+    svolgimenti = Svolgimento.objects.all().order_by('data', 'orario')
+    return render(request, 'calendario_eventi.html', {'svolgimenti': svolgimenti})
 
-from django.contrib.auth import authenticate, login, logout
-
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            return render(request, 'login.html', {'error': 'Username o password errati.'})
-    return render(request, 'login.html')
-
+from django.contrib.auth import login

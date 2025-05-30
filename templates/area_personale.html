@@ -3,16 +3,98 @@
 {% block title %}Area Personale - Agora Cultura{% endblock %}
 
 {% block content %}
-<h2>Area Personale</h2>
-<p>Benvenuto, {{ user.username }}!</p>
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Area Personale</h2>
+            </div>
+            <div class="card-body">
+                <h4>Benvenuto, {{ user.username }}!</h4>
+                <p>
+                    <strong>Email:</strong> {{ user.email }}<br>
+                    <strong>Ruolo:</strong> {{ user.ruolo }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h3>Eventi a cui hai partecipato:</h3>
-<ul>
-    {% for evento in eventi_partecipati %}
-        <li>{{ evento.titolo }} - {{ evento.data }}</li>
-    {% empty %}
-        <li>Non hai partecipato a nessun evento.</li>
-    {% endfor %}
-</ul>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">I Tuoi Eventi</h3>
+            </div>
+            <div class="card-body">
+                {% if eventi_info %}
+                    <div class="list-group">
+                        {% for info in eventi_info %}
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ info.evento.titolo }}</h5>
+                                    <small class="text-{% if info.prenotazione.stato == 'Confermata' %}success{% else %}danger{% endif %}">
+                                        {{ info.prenotazione.stato }}
+                                    </small>
+                                </div>
+                                <p class="mb-1">
+                                    <strong>Data:</strong> {{ info.svolgimento.data|date:"d/m/Y" }}<br>
+                                    <strong>Ora:</strong> {{ info.svolgimento.orario|time:"H:i" }}<br>
+                                    <strong>Luogo:</strong> {{ info.svolgimento.luogo.nome }}
+                                </p>
+                                <small>Prenotato il: {{ info.prenotazione.data_prenotazione|date:"d/m/Y" }}</small>
+                                <div class="mt-2">
+                                    <a href="{% url 'dettaglio_evento' info.evento.id %}" class="btn btn-sm btn-primary">Dettagli</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        Non hai partecipato a nessun evento.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Le Tue Recensioni</h3>
+            </div>
+            <div class="card-body">
+                {% if recensioni %}
+                    <div class="list-group">
+                        {% for recensione in recensioni %}
+                            <div class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ recensione.evento.titolo }}</h5>
+                                    <small>{{ recensione.data|date:"d/m/Y" }}</small>
+                                </div>
+                                <p class="mb-1">{{ recensione.testo }}</p>
+                                <small>Valutazione: 
+                                    {% for i in "12345" %}
+                                        {% if forloop.counter <= recensione.valutazione %}
+                                            <i class="text-warning">★</i>
+                                        {% else %}
+                                            <i class="text-secondary">☆</i>
+                                        {% endif %}
+                                    {% endfor %}
+                                </small>
+                                <div class="mt-2">
+                                    <a href="{% url 'dettaglio_evento' recensione.evento.id %}" class="btn btn-sm btn-primary">Vai all'evento</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        Non hai scritto nessuna recensione.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
-
