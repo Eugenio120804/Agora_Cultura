@@ -1,38 +1,47 @@
-🏛️ Agora Cultura
-Piattaforma per la gestione e promozione di eventi culturali, con funzionalità per prenotazioni, recensioni, categorizzazione eventi e ruoli utenti differenziati.
+AgoraCultura – Sistema Informativo per Eventi Culturali Locali
 
-📚 Informazioni generali
-Agora Cultura è un'applicazione web sviluppata con Django, progettata per supportare l’organizzazione e la partecipazione a eventi culturali locali. 
-Il sistema permette a cittadini, organizzatori e amministratori di interagire in modo sicuro e strutturato attraverso funzionalità come:
+AgoraCultura è un sistema informativo web-based progettato per supportare l’organizzazione, la promozione e la partecipazione a eventi culturali locali, offrendo una piattaforma moderna e intuitiva per cittadini, organizzatori e amministratori comunali.
 
-- Registrazione e autenticazione utenti
-- Proposta e supervisione di eventi
-- Prenotazione posti (gratuiti o a pagamento)
-- Inserimento recensioni post-evento
-- Categorizzazione e promozione eventi in evidenza
-- Gerarchia e supervisione tra utenti
+Indice
+Obiettivo del Sistema
+Tecnologie Utilizzate
+Installazione
+Configurazione del Database
+Utilizzo
+Licenza
 
-🚀 Istruzioni per l’avvio del progetto
-1. Clona il repository
-git clone https://github.com/Eugenio120804/Agora_Cultura.git
-cd Agora_Cultura
+Obiettivo del Sistema
 
-2. Crea e attiva un ambiente virtuale
-python -m venv env
-source env/bin/activate  # Su Windows: env\Scripts\activate
+AgoraCultura nasce con l’obiettivo di:
+- 📅 Centralizzare la gestione e la promozione degli eventi culturali del territorio.
+- 👥 Facilitare la partecipazione dei cittadini attraverso un’interfaccia semplice e personalizzata.
+- 🛠 Consentire agli organizzatori di proporre, modificare e gestire i propri eventi.
+- 🧑‍💼 Fornire agli amministratori uno strumento di coordinamento per ruoli, supervisioni e attività.
+- 🧾 Archiviare la cronologia degli eventi, recensioni, materiali promozionali e tracciamento delle presenze.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tecnologie utilizzate
+Backend
 
-3. Installa le dipendenze
-pip install -r requirements.txt
+Python – Linguaggio di programmazione principale.
 
-4. Applica le migrazioni
-python manage.py migrate
+Django – Framework web per la logica server-side.
 
-5. Avvia il server di sviluppo
-python manage.py runserver
+mysqlclient – Libreria per collegare Django a MySQL/MariaDB.
 
-6. Crea un superutente per l’accesso all’admin
-python manage.py createsuperuser
+Database
+MariaDB / MySQL – Database relazionale esterno, gestito tramite phpMyAdmin per facilitare l’inserimento e gestione dei dati.
+
+Frontend
+HTML / CSS – Utilizzati per l’interfaccia utente.
+
+Modellazione Dati
+Modello E/R progettato con generalizzazioni disgiunte e totali, garantendo una struttura dati coerente e scalabile.
+![Testo alternativo](Basi di Dati/AgoraCultura..drawio.png)
+![AgoraCultura drawio](https://github.com/user-attachments/assets/67c97d27-171c-472c-a1e0-946875757b26)
+![AgoraCultura drawio](https://github.com/user-attachments/assets/67c97d27-171c-472c-a1e0-946875757b26)
+![AgoraCultura drawio](https://github.com/user-attachments/assets/7522c1a2-fa40-4a00-bbee-8e9e4034d56a)
+![AgoraCultura drawio](https://github.com/user-attachments/assets/7522c1a2-fa40-4a00-bbee-8e9e4034d56a)
+![image](https://github.com/user-attachments/assets/452bf934-f75e-44e2-aa60-473341389b99)
+![image](https://github.com/user-attachments/assets/452bf934-f75e-44e2-aa60-473341389b99)
 
 
-👤 Autore
-Eugenio120804
