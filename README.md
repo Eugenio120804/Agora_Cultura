@@ -18,7 +18,7 @@ AgoraCultura nasce con l’obiettivo di:
 - 🛠 Consentire agli organizzatori di proporre, modificare e gestire i propri eventi.
 - 🧑‍💼 Fornire agli amministratori uno strumento di coordinamento per ruoli, supervisioni e attività.
 - 🧾 Archiviare la cronologia degli eventi, recensioni, materiali promozionali e tracciamento delle presenze.
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Tecnologie utilizzate
 Backend
 
@@ -66,6 +66,7 @@ pip install -r requirements.txt
 Se non si vuole usare il file requirements.txt, installare manualmente eseguendo:
 pip install django mysqlclient
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Configurazione del Database
 Importare il database da dump SQL* Se disponi di un file .sql con il dump del database puoi importarlo nel tuo server MySQL/MariaDB.
 Metodo 1: via phpMyAdmin
@@ -74,19 +75,28 @@ Accedi a phpMyAdmin
 Crea un nuovo database
 Clicca su Importa e carica il file dump.sql
 Configurazione Database su Django All’interno del file settings.py del progetto Django, è necessario configurare correttamente la connessione al database MySQL/MariaDB. I parametri da inserire sono:
+
 DATABASES = {
-    'default': {
+
+    'default': 
+    
         'ENGINE': 'django.db.backends.mysql',
+        
         'NAME': 'nome_database',
+        
         'USER': 'nome_utente',
+        
         'PASSWORD': ‘ ’,
+        
         'HOST': 'localhost',
+        
         'PORT': '3306',
     }
 }
 
 
 Utilizzo
+
 Dopo la configurazione, eseguire i seguenti comandi da terminale per applicare le migrazioni:
 
 python manage.py makemigrations
@@ -105,21 +115,25 @@ Contenuti principali:
 •	Recensioni e Area Personale: indicazioni sulle funzionalità riservate agli utenti autenticati, come lasciare recensioni e consultare lo storico personale.
 
 Area riservata – Gestione Autenticata (con sessioni)
+
 La piattaforma integra il sistema di autenticazione e gestione delle sessioni di Django, differenziando i permessi in base al ruolo dell’utente. I pazienti possono registrarsi autonomamente creando un account personale tramite un modulo dedicato. Successivamente possono effettuare il login per accedere alle funzionalità riservate.
 L’organizzatore e l’amministratore comunale accede solo tramite login, con credenziali già definite e riportate nel database.
 
 Login Cittadino
+
 L’utente cittadino ha accesso a un’area personale dedicata, con funzionalità mirate all’esperienza culturale:
 •	Visualizzazione calendario eventi: può esplorare eventi culturali, visionare orari e dettagli.
 •	Inserimento recensioni: può lasciare recensioni per eventi a cui ha partecipato.
 •	Storico recensioni: consultazione e gestione delle recensioni già inserite.
  
 Login Organizzatore
+
 L’organizzatore ha accesso a strumenti di gestione degli eventi:
 •	Proposta nuovi eventi: possibilità di creare e proporre un nuovo evento culturale.
 •	Modifica eventi esistenti: può aggiornare titolo, descrizione, luogo e data degli eventi proposti.
  
 Login Amministratore
+
 L’amministratore ha accesso completo alle funzioni di supervisione e controllo qualità:
 •	Supervisione eventi: può supervisionare eventi organizzati da utenti con ruolo “Organizzatore”.
 •	Evidenziazione eventi: può contrassegnare un evento come "in evidenza" solo se è stato effettivamente supervisionato.
