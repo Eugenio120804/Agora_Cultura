@@ -1,4 +1,4 @@
-AgoraCultura – Sistema Informativo per Eventi Culturali Locali
+                                                                                 AgoraCultura – Sistema Informativo per Eventi Culturali Locali
 
 AgoraCultura è un sistema informativo web-based progettato per supportare l’organizzazione, la promozione e la partecipazione a eventi culturali locali, offrendo una piattaforma moderna e intuitiva per cittadini, organizzatori e amministratori comunali.
 
@@ -21,11 +21,11 @@ Licenza
 Obiettivo del Sistema
 
 AgoraCultura nasce con l’obiettivo di:
-- 📅 Centralizzare la gestione e la promozione degli eventi culturali del territorio.
-- 👥 Facilitare la partecipazione dei cittadini attraverso un’interfaccia semplice e personalizzata.
-- 🛠 Consentire agli organizzatori di proporre, modificare e gestire i propri eventi.
-- 🧑‍💼 Fornire agli amministratori uno strumento di coordinamento per ruoli, supervisioni e attività.
-- 🧾 Archiviare la cronologia degli eventi, recensioni, materiali promozionali e tracciamento delle presenze.
+- Centralizzare la gestione e la promozione degli eventi culturali del territorio.
+- Facilitare la partecipazione dei cittadini attraverso un’interfaccia semplice e personalizzata.
+- Consentire agli organizzatori di proporre, modificare e gestire i propri eventi.
+- Fornire agli amministratori uno strumento di coordinamento per ruoli, supervisioni e attività.
+- Archiviare la cronologia degli eventi, recensioni, materiali promozionali e tracciamento delle presenze.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Tecnologie utilizzate
 
