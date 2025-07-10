@@ -127,7 +127,9 @@ Dopo la configurazione, eseguire i seguenti comandi da terminale per applicare l
 
 
 - python manage.py makemigrations
+
   python manage.py migrate
+
 Una volta completato, si può avviare il server locale con:
 
 - manage.py runserver
