@@ -39,13 +39,13 @@ Backend
 - mysqlclient – Libreria per collegare Django a MySQL/MariaDB.
 
 Database
-MariaDB / MySQL – Database relazionale esterno, gestito tramite phpMyAdmin per facilitare l’inserimento e gestione dei dati.
+- MariaDB / MySQL – Database relazionale esterno, gestito tramite phpMyAdmin per facilitare l’inserimento e gestione dei dati.
 
 Frontend
-HTML / CSS – Utilizzati per l’interfaccia utente.
+- HTML / CSS – Utilizzati per l’interfaccia utente.
 
 Modellazione Dati
-Modello E/R progettato con generalizzazioni disgiunte e totali, garantendo una struttura dati coerente e scalabile.
+- Modello E/R progettato con generalizzazioni disgiunte e totali, garantendo una struttura dati coerente e scalabile.
 ![AgoraCultura drawio](https://github.com/user-attachments/assets/67c97d27-171c-472c-a1e0-946875757b26)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -62,22 +62,29 @@ git clone https://github.com/Eugenio120804/Agora_Cultura.git
 cd Agora_Cultura
 
 4. Creare e attivare un ambiente virtuale (consigliato)
+
 python -m venv venv
 
 Linux/macOS
+
 source venv/bin/activate
 
 Windows
+
 In cmd
+
 venv\Scripts\activate.bat
 
 In PowerShell
+
 .\venv\Scripts\Activate.ps1
 
 5. Installare le dipendenze
+
 pip install -r requirements.txt
 
 Se non si vuole usare il file requirements.txt, installare manualmente eseguendo:
+
 pip install django mysqlclient
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
