@@ -63,7 +63,7 @@ cd Agora_Cultura
 
 4. Creare e attivare un ambiente virtuale (consigliato)
 
-python -m venv venv
+python -m venv venv,
 
 Linux/macOS
 
