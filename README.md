@@ -32,11 +32,11 @@ Tecnologie utilizzate
 
 Backend
 
-Python – Linguaggio di programmazione principale.
+- Python – Linguaggio di programmazione principale.
 
-Django – Framework web per la logica server-side.
+- Django – Framework web per la logica server-side.
 
-mysqlclient – Libreria per collegare Django a MySQL/MariaDB.
+- mysqlclient – Libreria per collegare Django a MySQL/MariaDB.
 
 Database
 MariaDB / MySQL – Database relazionale esterno, gestito tramite phpMyAdmin per facilitare l’inserimento e gestione dei dati.
