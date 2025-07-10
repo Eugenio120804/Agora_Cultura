@@ -86,7 +86,7 @@ In PowerShell
 
 Se non si vuole usare il file requirements.txt, installare manualmente eseguendo:
 
-pip install django mysqlclient
+- pip install django mysqlclient
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Configurazione del Database
@@ -118,20 +118,19 @@ DATABASES = {
         'HOST': 'localhost',
         
         'PORT': '3306',
-    }
 }
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Utilizzo
 
 Dopo la configurazione, eseguire i seguenti comandi da terminale per applicare le migrazioni:
-{
 
-python manage.py makemigrations
-python manage.py migrate
+
+- python manage.py makemigrations
+  python manage.py migrate
 Una volta completato, si può avviare il server locale con:
-}
-manage.py runserver
+
+- manage.py runserver
 
 L'applicazione sarà accessibile all'indirizzo: http://localhost:8000.
 
@@ -147,10 +146,14 @@ Contenuti principali:
 
 •	Recensioni e Area Personale: indicazioni sulle funzionalità riservate agli utenti autenticati, come lasciare recensioni e consultare lo storico personale.
 
+
+
 Area riservata – Gestione Autenticata (con sessioni)
 
 La piattaforma integra il sistema di autenticazione e gestione delle sessioni di Django, differenziando i permessi in base al ruolo dell’utente. I pazienti possono registrarsi autonomamente creando un account personale tramite un modulo dedicato. Successivamente possono effettuare il login per accedere alle funzionalità riservate.
 L’organizzatore e l’amministratore comunale accede solo tramite login, con credenziali già definite e riportate nel database.
+
+
 
 Login Cittadino
 
@@ -163,6 +166,7 @@ L’utente cittadino ha accesso a un’area personale dedicata, con funzionalit�
 •	Storico recensioni: consultazione e gestione delle recensioni già inserite.
  
 
+
 Login Organizzatore
 
 L’organizzatore ha accesso a strumenti di gestione degli eventi:
@@ -171,6 +175,9 @@ L’organizzatore ha accesso a strumenti di gestione degli eventi:
 
 •	Modifica eventi esistenti: può aggiornare titolo, descrizione, luogo e data degli eventi proposti.
  
+
+
+
 Login Amministratore
 
 L’amministratore ha accesso completo alle funzioni di supervisione e controllo qualità:
@@ -179,17 +186,25 @@ L’amministratore ha accesso completo alle funzioni di supervisione e controllo
 
 •	Evidenziazione eventi: può contrassegnare un evento come "in evidenza" solo se è stato effettivamente supervisionato.
  
+
+
 Cittadino
 
 ![image](https://github.com/user-attachments/assets/3456f905-1b1c-4516-9b13-3f1cf9392da5)
+
+
 
 Organizzatore
 
 ![image](https://github.com/user-attachments/assets/255af1d1-5b4d-4df2-a691-65f8cfd6c83d)
 
+
+
 Amministratore
 
 ![image](https://github.com/user-attachments/assets/c7d62eae-ad4b-416f-94eb-4d58b4f6ad75)
+
+
 
 Licenza
 
