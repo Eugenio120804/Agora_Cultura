@@ -2,6 +2,7 @@ AgoraCultura – Sistema Informativo per Eventi Culturali Locali
 
 AgoraCultura è un sistema informativo web-based progettato per supportare l’organizzazione, la promozione e la partecipazione a eventi culturali locali, offrendo una piattaforma moderna e intuitiva per cittadini, organizzatori e amministratori comunali.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Indice
 
 Obiettivo del Sistema
@@ -27,6 +28,8 @@ AgoraCultura nasce con l’obiettivo di:
 - 🧾 Archiviare la cronologia degli eventi, recensioni, materiali promozionali e tracciamento delle presenze.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Tecnologie utilizzate
+
+
 Backend
 
 Python – Linguaggio di programmazione principale.
@@ -49,10 +52,13 @@ Modello E/R progettato con generalizzazioni disgiunte e totali, garantendo una s
 Per eseguire l’applicazione, è necessario:
 
 1. Avere Python installato nel proprio ambiente.
-2. Avere accesso a un server MySQL/MariaDB, preferibilmente con phpMyAdmin.
-3. Clonare il progetto nella propria directory locale.
+
+3. Avere accesso a un server MySQL/MariaDB, preferibilmente con phpMyAdmin.
+   
+5. Clonare il progetto nella propria directory locale.
 
 git clone https://github.com/Eugenio120804/Agora_Cultura.git
+
 cd Agora_Cultura
 
 4. Creare e attivare un ambiente virtuale (consigliato)
