@@ -46,6 +46,7 @@ Frontend
 
 Modellazione Dati
 - Modello E/R progettato con generalizzazioni disgiunte e totali, garantendo una struttura dati coerente e scalabile.
+
 ![AgoraCultura drawio](https://github.com/user-attachments/assets/67c97d27-171c-472c-a1e0-946875757b26)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -57,31 +58,31 @@ Per eseguire l’applicazione, è necessario:
    
 5. Clonare il progetto nella propria directory locale.
 
-git clone https://github.com/Eugenio120804/Agora_Cultura.git
+- git clone https://github.com/Eugenio120804/Agora_Cultura.git
 
-cd Agora_Cultura
+  cd Agora_Cultura
 
 4. Creare e attivare un ambiente virtuale (consigliato)
 
-python -m venv venv,
+- python -m venv venv,
 
 Linux/macOS
 
-source venv/bin/activate
+- source venv/bin/activate
 
 Windows
 
 In cmd
 
-venv\Scripts\activate.bat
+- venv\Scripts\activate.bat
 
 In PowerShell
 
-.\venv\Scripts\Activate.ps1
+- .\venv\Scripts\Activate.ps1
 
 5. Installare le dipendenze
 
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 Se non si vuole usare il file requirements.txt, installare manualmente eseguendo:
 
@@ -94,11 +95,11 @@ Importare il database da dump SQL* Se disponi di un file .sql con il dump del da
 
 Metodo 1: via phpMyAdmin
 
-Accedi a phpMyAdmin
+- Accedi a phpMyAdmin
 
-Crea un nuovo database
+- Crea un nuovo database
 
-Clicca su Importa e carica il file dump.sql
+- Clicca su Importa e carica il file dump.sql
 
 Configurazione Database su Django All’interno del file settings.py del progetto Django, è necessario configurare correttamente la connessione al database MySQL/MariaDB. I parametri da inserire sono:
 
@@ -136,8 +137,11 @@ L'applicazione sarà accessibile all'indirizzo: http://localhost:8000.
 
 Contenuti principali:
 •	Presentazione della piattaforma: messaggio di benvenuto che introduce l’obiettivo del portale: facilitare l’accesso e la partecipazione ad eventi culturali locali.
+
 •	Accesso Area Riservata: pulsanti che indirizzano l’utente verso il login o la registrazione.
+
 •	Calendario Eventi: accesso rapido alla sezione contenente il calendario completo degli eventi disponibili.
+
 •	Recensioni e Area Personale: indicazioni sulle funzionalità riservate agli utenti autenticati, come lasciare recensioni e consultare lo storico personale.
 
 Area riservata – Gestione Autenticata (con sessioni)
@@ -149,28 +153,36 @@ Login Cittadino
 
 L’utente cittadino ha accesso a un’area personale dedicata, con funzionalità mirate all’esperienza culturale:
 •	Visualizzazione calendario eventi: può esplorare eventi culturali, visionare orari e dettagli.
+
 •	Inserimento recensioni: può lasciare recensioni per eventi a cui ha partecipato.
+
 •	Storico recensioni: consultazione e gestione delle recensioni già inserite.
  
+
 Login Organizzatore
 
 L’organizzatore ha accesso a strumenti di gestione degli eventi:
 •	Proposta nuovi eventi: possibilità di creare e proporre un nuovo evento culturale.
+
 •	Modifica eventi esistenti: può aggiornare titolo, descrizione, luogo e data degli eventi proposti.
  
 Login Amministratore
 
 L’amministratore ha accesso completo alle funzioni di supervisione e controllo qualità:
 •	Supervisione eventi: può supervisionare eventi organizzati da utenti con ruolo “Organizzatore”.
+
 •	Evidenziazione eventi: può contrassegnare un evento come "in evidenza" solo se è stato effettivamente supervisionato.
  
 Cittadino
+
 ![image](https://github.com/user-attachments/assets/3456f905-1b1c-4516-9b13-3f1cf9392da5)
 
 Organizzatore
+
 ![image](https://github.com/user-attachments/assets/255af1d1-5b4d-4df2-a691-65f8cfd6c83d)
 
 Amministratore
+
 ![image](https://github.com/user-attachments/assets/c7d62eae-ad4b-416f-94eb-4d58b4f6ad75)
 
 Licenza
