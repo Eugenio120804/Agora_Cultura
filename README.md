@@ -125,17 +125,20 @@ DATABASES = {
 Utilizzo
 
 Dopo la configurazione, eseguire i seguenti comandi da terminale per applicare le migrazioni:
+{
 
 python manage.py makemigrations
 python manage.py migrate
 Una volta completato, si può avviare il server locale con:
-
+}
 manage.py runserver
 
 L'applicazione sarà accessibile all'indirizzo: http://localhost:8000.
+
 ![image](https://github.com/user-attachments/assets/44e11b09-3932-4481-9640-3139fd480211)
 
 Contenuti principali:
+
 •	Presentazione della piattaforma: messaggio di benvenuto che introduce l’obiettivo del portale: facilitare l’accesso e la partecipazione ad eventi culturali locali.
 
 •	Accesso Area Riservata: pulsanti che indirizzano l’utente verso il login o la registrazione.
@@ -152,6 +155,7 @@ L’organizzatore e l’amministratore comunale accede solo tramite login, con c
 Login Cittadino
 
 L’utente cittadino ha accesso a un’area personale dedicata, con funzionalità mirate all’esperienza culturale:
+
 •	Visualizzazione calendario eventi: può esplorare eventi culturali, visionare orari e dettagli.
 
 •	Inserimento recensioni: può lasciare recensioni per eventi a cui ha partecipato.
@@ -162,6 +166,7 @@ L’utente cittadino ha accesso a un’area personale dedicata, con funzionalit�
 Login Organizzatore
 
 L’organizzatore ha accesso a strumenti di gestione degli eventi:
+
 •	Proposta nuovi eventi: possibilità di creare e proporre un nuovo evento culturale.
 
 •	Modifica eventi esistenti: può aggiornare titolo, descrizione, luogo e data degli eventi proposti.
@@ -169,6 +174,7 @@ L’organizzatore ha accesso a strumenti di gestione degli eventi:
 Login Amministratore
 
 L’amministratore ha accesso completo alle funzioni di supervisione e controllo qualità:
+
 •	Supervisione eventi: può supervisionare eventi organizzati da utenti con ruolo “Organizzatore”.
 
 •	Evidenziazione eventi: può contrassegnare un evento come "in evidenza" solo se è stato effettivamente supervisionato.
