@@ -5,7 +5,7 @@
 
 ---
 
-## 📑 Indice
+## Indice
 
 - [Obiettivo del Sistema](#obiettivo-del-sistema)
 - [Tecnologie Utilizzate](#tecnologie-utilizzate)
@@ -16,7 +16,7 @@
 
 ---
 
-## 🎯 Obiettivo del Sistema
+## Obiettivo del Sistema
 
 AgoraCultura nasce con l’obiettivo di:
 
@@ -28,7 +28,7 @@ AgoraCultura nasce con l’obiettivo di:
 
 ---
 
-## 🧰 Tecnologie Utilizzate
+## Tecnologie Utilizzate
 
 ### Backend
 - **Python** – Linguaggio di programmazione principale
@@ -48,7 +48,7 @@ AgoraCultura nasce con l’obiettivo di:
 
 ---
 
-## ⚙️ Installazione
+## Installazione
 
 Per eseguire l’applicazione:
 
@@ -94,7 +94,7 @@ Per eseguire l’applicazione:
 
 ---
 
-## 🛠️ Configurazione del Database
+## Configurazione del Database
 
 ### Importazione tramite phpMyAdmin
 
@@ -121,7 +121,7 @@ DATABASES = {
 
 ---
 
-## 🚀 Utilizzo
+## Utilizzo
 
 Esegui le migrazioni:
 ```bash
@@ -149,7 +149,7 @@ Gestione sessioni con login differenziato in base al ruolo:
 
 ---
 
-#### 👤 Login Cittadino
+#### Login Cittadino
 
 - Visualizzazione calendario eventi
 - Inserimento recensioni
@@ -159,7 +159,7 @@ Gestione sessioni con login differenziato in base al ruolo:
 
 ---
 
-#### 📝 Login Organizzatore
+#### Login Organizzatore
 
 - Proposta nuovi eventi
 - Modifica eventi esistenti
@@ -168,7 +168,7 @@ Gestione sessioni con login differenziato in base al ruolo:
 
 ---
 
-#### 🛡️ Login Amministratore
+#### Login Amministratore
 
 - Supervisione eventi
 - Evidenziazione eventi
@@ -177,7 +177,7 @@ Gestione sessioni con login differenziato in base al ruolo:
 
 ---
 
-## 📄 Licenza
+## Licenza
 
 Questo progetto è distribuito sotto **Licenza MIT**.  
 Puoi usarlo, modificarlo e distribuirlo liberamente, a condizione che venga mantenuto il copyright.
