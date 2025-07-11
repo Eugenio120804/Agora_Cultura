@@ -181,5 +181,3 @@ Gestione sessioni con login differenziato in base al ruolo:
 
 Questo progetto è distribuito sotto **Licenza MIT**.  
 Puoi usarlo, modificarlo e distribuirlo liberamente, a condizione che venga mantenuto il copyright.
-
----
