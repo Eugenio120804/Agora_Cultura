@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Conferma Supervisione - {{ evento.titolo }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h2 class="mb-0">Conferma Supervisione</h2>
+            </div>
+            <div class="card-body">
+                <h4 class="mb-4">Sei sicuro di voler supervisionare l'evento "{{ evento.titolo }}"?</h4>
+                
+                <div class="alert alert-info">
+                    <p><strong>Organizzatore:</strong> {{ evento.organizzatore.username }}</p>
+                    <p><strong>Tipologia:</strong> {{ evento.tipologia }}</p>
+                    <p><strong>Prezzo:</strong> € {{ evento.prezzo }}</p>
+                    <p><strong>Descrizione:</strong> {{ evento.descrizione }}</p>
+                </div>
+                
+                <p>Una volta supervisionato, l'evento potrà essere contrassegnato come "in evidenza".</p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'supervisione_eventi' %}" class="btn btn-secondary">Annulla</a>
+                        <button type="submit" class="btn btn-success">Conferma Supervisione</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Area Riservata Cittadino - Agora Cultura{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h2 class="mb-0">Area Riservata Cittadino (SQL Injection)</h2>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-success">
+                    <h4 class="alert-heading">Accesso Riuscito!</h4>
+                    <p>Hai effettuato l'accesso con successo utilizzando una vulnerabilità SQL Injection.</p>
+                </div>
+
+                <h4>Dati dell'utente:</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Campo</th>
+                                <th>Valore</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in cittadino.items %}
+                            <tr>
+                                <td><strong>{{ key }}</strong></td>
+                                <td>{{ value }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'home' %}" class="btn btn-primary">
+                        <i class="fas fa-home"></i> Torna alla Home
+                    </a>
+                    <a href="{% url 'login_vulnerabile_cittadino' %}" class="btn btn-outline-danger">
+                        <i class="fas fa-bug"></i> Prova un altro attacco
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
