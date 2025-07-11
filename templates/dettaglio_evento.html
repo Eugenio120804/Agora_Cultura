@@ -47,11 +47,15 @@
                 <h5 class="mb-0">Recensioni</h5>
             </div>
             <div class="card-body">
-                {% if user.is_authenticated %}
+                {% if user.is_authenticated and user.ruolo != 'Organizzatore' %}
                     <a href="{% url 'recensione_evento' evento.id %}" class="btn btn-primary mb-3">Scrivi una recensione</a>
-                {% else %}
+                {% elif not user.is_authenticated %}
                     <div class="alert alert-info mb-3">
                         <a href="{% url 'login' %}">Accedi</a> per scrivere una recensione.
+                    </div>
+                {% elif user.ruolo == 'Organizzatore' %}
+                    <div class="alert alert-warning mb-3">
+                        Gli organizzatori non possono lasciare recensioni.
                     </div>
                 {% endif %}
 

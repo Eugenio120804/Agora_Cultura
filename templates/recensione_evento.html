@@ -3,6 +3,16 @@
 {% block title %}Recensione - {{ evento.titolo }}{% endblock %}
 
 {% block content %}
+{% if user.ruolo == 'Organizzatore' %}
+    <div class="alert alert-danger">
+        <h4 class="alert-heading">Accesso negato!</h4>
+        <p>Gli organizzatori non possono lasciare recensioni.</p>
+        <hr>
+        <p class="mb-0">
+            <a href="{% url 'dettaglio_evento' evento.id %}" class="btn btn-primary">Torna all'evento</a>
+        </p>
+    </div>
+{% else %}
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="card">
@@ -43,4 +53,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 {% endblock %}

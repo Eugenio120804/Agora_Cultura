@@ -30,6 +30,8 @@ class Evento(models.Model):
     prezzo = models.DecimalField(max_digits=6, decimal_places=2)
     tipologia = models.CharField(max_length=100)
     evidenza = models.BooleanField(default=False)
+    supervisionato = models.BooleanField(default=False)
+    organizzatore = models.ForeignKey(Utente, on_delete=models.CASCADE, related_name='eventi_organizzati', null=True)
     categorie = models.ManyToManyField(Categoria, through='Associazione')
 
     def __str__(self):

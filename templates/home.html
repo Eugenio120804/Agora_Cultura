@@ -3,53 +3,166 @@
 {% block title %}Home - Agora Cultura{% endblock %}
 
 {% block content %}
-<div class="jumbotron bg-light p-5 rounded">
-    <h1 class="display-4">Benvenuto su Agora Cultura</h1>
-    <p class="lead">La piattaforma per scoprire e partecipare agli eventi culturali nella tua zona.</p>
-    <hr class="my-4">
-    <p>Esplora il nostro calendario di eventi, prenota il tuo posto e condividi le tue esperienze con altri appassionati di cultura.</p>
-    <a class="btn btn-primary btn-lg" href="{% url 'calendario_eventi' %}" role="button">Esplora gli eventi</a>
+<!-- Link to Font Awesome for better icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom styles for this template -->
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+        opacity: 0.2;
+        z-index: 0;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .feature-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 12px;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .icon-circle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .icon-circle {
+        transform: scale(1.1);
+    }
+
+    .btn-gradient {
+        background: linear-gradient(45deg, #FF512F, #F09819);
+        border: none;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+    .btn-gradient:hover {
+        background: linear-gradient(45deg, #F09819, #FF512F);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(240, 152, 25, 0.4);
+    }
+
+    .testimonial-section {
+        background-color: #f8f9fa;
+        border-radius: 12px;
+    }
+
+    .mission-section {
+        background: linear-gradient(to right, #ECE9E6, #FFFFFF);
+        border-radius: 12px;
+        padding: 30px;
+    }
+</style>
+
+
+<div class="hero-section p-5 mb-5">
+    <div class="hero-content text-center py-5">
+        <h1 class="display-3 fw-bold mb-3">Benvenuto su Agora Cultura</h1>
+        <p class="lead fs-4 mb-4">La piattaforma che trasforma il modo di vivere la cultura nella tua città</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a class="btn btn-light btn-lg px-4 py-2" href="{% url 'calendario_eventi' %}">
+                <i class="fas fa-calendar-alt me-2"></i>Esplora Eventi
+            </a>
+            <a class="btn btn-outline-light btn-lg px-4 py-2" href="{% url 'register' %}">
+                <i class="fas fa-user-plus me-2"></i>Unisciti a Noi
+            </a>
+        </div>
+    </div>
 </div>
 
-<div class="row mt-4">
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">Calendario Eventi</h5>
-            </div>
-            <div class="card-body">
-                <p>Consulta il nostro calendario completo di eventi culturali, con date, orari e luoghi.</p>
-                <a href="{% url 'calendario_eventi' %}" class="btn btn-outline-primary">Vai al calendario</a>
+
+<div class="container mb-5">
+    <h2 class="text-center mb-5 fw-bold">Scopri Cosa Offriamo</h2>
+
+    <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-4">
+            <div class="feature-card shadow-sm h-100 p-4 bg-white">
+                <div class="icon-circle bg-primary text-white">
+                    <i class="fas fa-calendar-alt fa-2x"></i>
+                </div>
+                <h4 class="text-center mb-3">Eventi Culturali</h4>
+                <p class="text-center">Scopri mostre, concerti, spettacoli teatrali e molto altro nella tua città.</p>
+                <div class="text-center mt-3">
+                    <a href="{% url 'calendario_eventi' %}" class="btn btn-sm btn-outline-primary">Esplora</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">Area Personale</h5>
-            </div>
-            <div class="card-body">
-                <p>Accedi alla tua area personale per visualizzare le tue prenotazioni e recensioni.</p>
-                <a href="{% url 'area_personale' %}" class="btn btn-outline-primary">Area personale</a>
+
+        <div class="col-md-4">
+            <div class="feature-card shadow-sm h-100 p-4 bg-white">
+                <div class="icon-circle bg-success text-white">
+                    <i class="fas fa-users fa-2x"></i>
+                </div>
+                <h4 class="text-center mb-3">Comunità Culturale</h4>
+                <p class="text-center">Connettiti con persone che condividono i tuoi interessi e passioni culturali.</p>
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-success">Partecipa</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h5 class="mb-0">Registrati</h5>
-            </div>
-            <div class="card-body">
-                <p>Non hai ancora un account? Registrati per prenotare eventi e lasciare recensioni.</p>
-                {% if user.is_authenticated %}
-                    <p class="text-success">Hai già effettuato l'accesso come {{ user.username }}.</p>
-                {% else %}
-                    <a href="{% url 'register' %}" class="btn btn-outline-primary">Registrati</a>
-                {% endif %}
+
+        <div class="col-md-4">
+            <div class="feature-card shadow-sm h-100 p-4 bg-white">
+                <div class="icon-circle bg-danger text-white">
+                    <i class="fas fa-star fa-2x"></i>
+                </div>
+                <h4 class="text-center mb-3">Recensioni</h4>
+                <p class="text-center">Condividi le tue esperienze e leggi le opinioni di altri partecipanti.</p>
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-danger">Scopri</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="bg-primary text-white p-5 rounded-4 text-center">
+                <h3 class="mb-3">Pronto a Scoprire Nuovi Eventi?</h3>
+                <p class="lead mb-4">Esplora il nostro calendario e trova l'evento perfetto per te</p>
+                <a href="{% url 'calendario_eventi' %}" class="btn btn-gradient btn-lg px-5 py-3">
+                    <i class="fas fa-arrow-right me-2"></i>Vai al Calendario
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

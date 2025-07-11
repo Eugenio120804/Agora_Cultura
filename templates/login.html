@@ -32,6 +32,29 @@
                 <div class="mt-3">
                     <p>Non hai un account? <a href="{% url 'register' %}">Registrati</a></p>
                 </div>
+
+                {% if vulnerabile %}
+                <div class="mt-3 alert alert-danger">
+                    <h4 class="alert-heading">ATTENZIONE: Login Vulnerabile!</h4>
+                    <p>Stai utilizzando una versione vulnerabile del login per scopi didattici.</p>
+                    <p>Questa pagina è vulnerabile a SQL injection. Prova ad accedere con:</p>
+                    <ul>
+                        <li>Username: <code>' OR '1'='1</code></li>
+                        <li>Password: <code>qualsiasi</code></li>
+                    </ul>
+                    <p>Questo bypassa l'autenticazione e accede come primo utente nel database.</p>
+                    <a href="{% url 'login' %}" class="btn btn-sm btn-warning">Torna al login sicuro</a>
+                </div>
+                {% else %}
+                <div class="mt-3">
+                    <a href="{% url 'login_vulnerabile' %}" class="btn btn-sm btn-outline-danger me-2">
+                        <i class="fas fa-bug"></i> Test SQL Injection (Username)
+                    </a>
+                    <a href="{% url 'login_vulnerabile_cittadino' %}" class="btn btn-sm btn-outline-danger">
+                        <i class="fas fa-bug"></i> Test SQL Injection (Email)
+                    </a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>
